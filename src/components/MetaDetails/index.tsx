@@ -315,6 +315,11 @@ const MetaDetails = ({ id, type, data }: any) => {
               {data?.tagline ? (
                 <h4>
                   <q>{data?.tagline}</q>
+                  <AdBanner
+  dataAdFormat="auto"
+  dataFullWidthResponsive={true}
+  dataAdSlot="8946601747"
+ />
                 </h4>
               ) : null}
               <p dangerouslySetInnerHTML={{ __html: data?.overview }}></p>
