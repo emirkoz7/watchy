@@ -9,6 +9,7 @@ import Filter from "../Filter";
 import Skeleton from "react-loading-skeleton";
 import NProgress from "nprogress";
 import { toast } from "sonner";
+import AdBanner from "@/components/AdBanner";
 // import MoviePoster from '@/components/MoviePoster';
 
 function capitalizeFirstLetter(string: string) {
