@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+.HomeListAll {
+  .HomeListSection {
+    display: flex;
+    margin: 1rem 0.5rem;
+    margin-bottom: 2rem;
+    // justify-content: center;
+    // align-items: center;
+    // flex-wrap: wrap;
+    width: 100%;
+    overflow: auto;
+    gap: 1.2rem;
+    .loading {
+      height: 15rem;
+      width: 10rem;
+      font-family: "Patua One", serif;
+    }
+  }
+
+  h1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Yeseva One";
+    .recommendation {
+      font-family: "Yeseva One";
+      color: #ffd700;
+      font-size: 1.7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 1rem;
+      font-size: 0.8rem;
+      svg {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  // h1{
+  //   height: 3ch;
+  //   margin-top: 3rem;
+  //   padding: 0 1rem;
+  //   border-left: 0.5rem solid var(--primary-3);
+  //   border-radius: 0.5rem;
+  //   display: flex;
+  //   align-items: center;
+  // }
+}
+
+@media (max-width: 769px) {
+  .HomeListAll {
+    .HomeListSection {
+      .loading {
+        height: 10rem;
+        width: 7rem;
+      }
+    }
+    h1 {
+      .recommendation {
+        font-size: 1.2rem;
+      }
+      div {
+        display: none;
+      }
+    }
+  }
+}
