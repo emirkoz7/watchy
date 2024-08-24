@@ -147,6 +147,16 @@ const CategorywisePage = ({ categoryDiv, categoryPage = null }: any) => {
           (categoryPage === "anime" && "Anime") ||
           (categoryPage === "kdrama" && "K-Drama")}
       </h1>
+
+  <AdBanner
+                dataAdFormat="auto"
+                dataFullWidthResponsive={true}
+                dataAdSlot="3028978587"
+              />
+
+
+
+      
       <div className={styles.category}>
         <p
           className={`${category === "latest" ? styles.active : styles.inactive}`}
