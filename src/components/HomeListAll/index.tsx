@@ -329,7 +329,6 @@ const HomeListAll = () => {
                 data-tooltip-id="tooltip"
                 data-tooltip-content="Swipe Left"
               />
-              swipe
               <MdChevronRight
                 onClick={() => {
                   document
@@ -381,7 +380,6 @@ const HomeListAll = () => {
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
           />
-          swipe
           <MdChevronRight
             onClick={() => {
               document
@@ -419,7 +417,6 @@ const HomeListAll = () => {
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
           />
-          swipe
           <MdChevronRight
             onClick={() => {
               document
@@ -465,7 +462,6 @@ const HomeListAll = () => {
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
           />
-          swipe
           <MdChevronRight
             onClick={() => {
               document
@@ -498,7 +494,6 @@ const HomeListAll = () => {
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
           />
-          swipe
           <MdChevronRight
             onClick={() => {
               document
@@ -531,7 +526,6 @@ const HomeListAll = () => {
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
           />
-          swipe
           <MdChevronRight
             onClick={() => {
               document
