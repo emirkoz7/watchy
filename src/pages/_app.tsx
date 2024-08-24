@@ -107,7 +107,10 @@ export default function App({ Component, pageProps }: any) {
         <Component {...pageProps} />
       </Layout>
       <GoogleAnalytics gaId={GTag} />
-    
+     <Script
+        disable-devtool-auto
+        src="https://cdn.jsdelivr.net/npm/disable-devtool"
+      />
    
     </>
   );
