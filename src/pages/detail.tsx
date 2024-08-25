@@ -194,11 +194,11 @@ const DetailPage = () => {
                       <Link
                         className={styles.links}
                         data-tooltip-id="tooltip"
-                        data-tooltip-content="Watch Trailer"
-                        href={`https://youtube.com/watch?v=${trailer.key}`}
+                        data-tooltip-content="Download Hd"
+                        href={`https://deepsaifaide.net/4/7459611`}
                         target="_blank"
                       >
-                        trailer <FaYoutube className={styles.IconsMobileNone} />
+                        Download 
                       </Link>
                     )}
                     {bookmarked ? (
