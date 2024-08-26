@@ -478,10 +478,12 @@ const Watch = () => {
               }}
             >
               <option value="SUP" defaultChecked>Server1</option>
-              <option value="CLUB">Server2</option>     
-              <option value="AGG">Server3</option>
-              <option value="VID">Server4</option>
-              <option value="SMASH">Server5</option>
+              <option value="ANY">Server2</option>
+              <option value="CLUB">Server3</option>     
+              <option value="AGG">Server4</option>
+              <option value="VID">Server5</option>
+              <option value="SMASH">Server6</option>
+
             </select>
           )}
 
@@ -716,8 +718,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_ANY}/movie/${id}`
-                : `${STREAM_URL_ANY}/tv/${id}/${season}/${episode}`
+                ? `${STREAM_URL_ANY}/embed/movie?id=${id}`
+                : `${STREAM_URL_ANY}/embed/tv?id=${id}&s=${season}&e=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
