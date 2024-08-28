@@ -484,6 +484,7 @@ const Watch = () => {
               <option value="AGG">Server5</option>
               <option value="VID">Server6</option>
               <option value="SMASH">Server7</option>
+              <option value="RGS">Server8</option>
 
             </select>
           )}
@@ -752,8 +753,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_RGS}/movies/api3/index.html?id=${id}`
-                : `${STREAM_URL_RGS}/series/api3/index.html?id=${id}&s=${season}&e=${episode}`
+                ? `${STREAM_URL_RGS}/movies/flixhq/watch/113146/movie/${id}`
+                : `${STREAM_URL_RGS}/movies/flixhq/watch/1469422/tv/${id}?title=Eps ${season}&episode-number=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
