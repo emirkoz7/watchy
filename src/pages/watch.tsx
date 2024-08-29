@@ -752,8 +752,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_RGS}/embed/${type}/${id}`
-                : `${STREAM_URL_RGS}/embed/${type}/${id}/${season}/${episode}`
+                ? `${STREAM_URL_RGS}/watch/movie/${id}`
+                : `${STREAM_URL_RGS}/watch/tv/${id}?play=true&e=${episode}&s=${season}&server=sflix`
             }
             className={styles.iframe}
             allowFullScreen
