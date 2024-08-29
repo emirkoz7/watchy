@@ -479,12 +479,11 @@ const Watch = () => {
             >
               <option value="SUP" defaultChecked>Server1</option>
               <option value="POR">Server2</option>
-              <option value="RGS">Server3</option>
-              <option value="CLUB">Server4</option>     
-              <option value="AGG">Server5</option>
-              <option value="VID">Server6</option>
-              <option value="SMASH">Server7</option>
-              <option value="RGS">Server8</option>
+              <option value="CLUB">Server3</option>     
+              <option value="AGG">Server4</option>
+              <option value="VID">Server5</option>
+              <option value="SMASH">Server6</option>
+              <option value="RGS">Server78</option>
 
             </select>
           )}
