@@ -483,7 +483,6 @@ const Watch = () => {
               <option value="AGG">Server4</option>
               <option value="VID">Server5</option>
               <option value="SMASH">Server6</option>
-              <option value="RGS">Server78</option>
 
             </select>
           )}
