@@ -608,8 +608,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_PRO}/embed/${type}/${id}?theme=00c1db`
-                : `${STREAM_URL_PRO}/embed/${type}/${id}/${season}/${episode}?theme=00c1db`
+                ? `${STREAM_URL_PRO}/embed/${type}/${id}?theme=ffd966`
+                : `${STREAM_URL_PRO}/embed/${type}/${id}/${season}/${episode}?theme=ffd966`
             }
             className={styles.iframe}
             allowFullScreen
