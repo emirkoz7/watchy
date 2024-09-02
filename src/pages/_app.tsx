@@ -86,7 +86,7 @@ export default function App({ Component, pageProps }: any) {
           name="twitter:image"
           content="https://rivestream.live/images/MetaImage.jpg"
         />
- <script defer src="https://66analytics.com/demo/pixel/Emli9ybufs0G2wJD"></script>
+<script defer src="https://66analytics.com/demo/pixel/mmUKpIfLLEyz1hsU"></script>
        
       </Head> 
       <Layout>
