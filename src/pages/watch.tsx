@@ -477,7 +477,7 @@ const Watch = () => {
                 localStorage.setItem("RiveStreamLatestAgg", e.target.value);
               }}
             >
-              <option value="SUP" defaultChecked>Server1</option>
+              <option value="ONE" defaultChecked>Server1</option>
               <option value="POR">Server2</option>
               <option value="CLUB">Server3</option>
               <option value="RGS">Server4</option>
@@ -704,8 +704,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_ONE}/movie/${id}/watch`
-                : `${STREAM_URL_ONE}/tv/${id}/watch?season=${season}&episode=${episode}`
+                ? `${STREAM_URL_ONE}/embed/movie/${id}`
+                : `${STREAM_URL_ONE}/embed/tv/${id}?season=${season}&episode=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
