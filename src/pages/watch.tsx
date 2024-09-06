@@ -477,7 +477,7 @@ const Watch = () => {
                 localStorage.setItem("RiveStreamLatestAgg", e.target.value);
               }}
             >
-              <option value="ONE" defaultChecked>Server1</option>
+              <option value="SUP" defaultChecked>Server1</option>
               <option value="POR">Server2</option>
               <option value="CLUB">Server3</option>
               <option value="RGS">Server4</option>
