@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 .HomeListAll {
   .HomeListSection {
     display: flex;
@@ -13,7 +13,7 @@
     .loading {
       height: 15rem;
       width: 10rem;
-      font-family: "Patua One", serif;
+      font-family: "Sora";
     }
   }
 
@@ -22,9 +22,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: "Yeseva One";
+    font-family: "Sora";
     .recommendation {
-      font-family: "Yeseva One";
+      font-family: "Sora";
       color: #ffd700;
       font-size: 1.7rem;
       display: flex;
