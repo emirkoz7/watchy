@@ -477,13 +477,13 @@ const Watch = () => {
                 localStorage.setItem("RiveStreamLatestAgg", e.target.value);
               }}
             >
-              <option value="SUP" defaultChecked>Server1</option>
-              <option value="POR">Server2</option>
-              <option value="CLUB">Server3</option>
-              <option value="RGS">Server4</option>
-              <option value="AGG">Server5</option>
-              <option value="VID">Server6</option>
-              <option value="SMASH">Server7</option>
+              <option value="AGG" defaultChecked>Server1</option>
+              <option value="VID">Server2</option>
+              <option value="PRO">Server3</option>
+              <option value="EMB">Server4</option>
+              <option value="MULTI">Server5</option>
+              <option value="SUP">Server6</option>
+              <option value="CLUB">Server7</option>
 
             </select>
           )}
@@ -578,8 +578,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_AGG}/${type}/${id}`
-                : `${STREAM_URL_AGG}/${type}/${id}-${season}-${episode}`
+                ? `https://vidsrc.pro/embed/${type}/${id}?&autoplay=1&theme=ffd966`
+                : `https://vidsrc.pro/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
             }
             className={styles.iframe}
             allowFullScreen
@@ -593,8 +593,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_VID}/embed/${type}/${id}`
-                : `${STREAM_URL_VID}/embed/${type}/${id}/${season}/${episode}`
+                ? `https://eighty-mu.vercel.app/watch/${type}/${id}/null`
+                : `https://eighty-mu.vercel.app/watch/${type}/${id}/null?episode=${episode}&season=${season}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -608,8 +608,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_PRO}/embed/${type}/${id}?&autoplay=1&theme=ffd966`
-                : `${STREAM_URL_PRO}/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
+                ? `https://vidsrc.cc/v2/embed/${type}/${id}`
+                : `https://vidsrc.cc/v2/embed/${type}/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -623,8 +623,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_EMB}/${type}/${id}`
-                : `${STREAM_URL_EMB}/${type}/${id}-${season}-${episode}`
+                ? `https://player.autoembed.cc/embed/${type}/${id}`
+                : `https://player.autoembed.cc/embed/${type}/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -641,8 +641,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_MULTI}?video_id=${id}&tmdb=1`
-                : `${STREAM_URL_MULTI}?video_id=${id}&tmdb=1&s=${season}&e=${episode}`
+                ? `https://vidsrc.vip/embed/${type}/${id}`
+                : `https://vidsrc.vip/embed/${type}/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -656,8 +656,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_SUP}/embed/${type}/${id}?&autoplay=1&theme=ffd966`
-                : `${STREAM_URL_SUP}/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
+                ? `https://flixcloud.co/embed/${type}?id=${id}`
+                : `https://flixcloud.co/embed/${type}?id=${id}&s=${season}&e=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -671,8 +671,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_CLUB}/embed/movie/${id}`
-                : `${STREAM_URL_CLUB}/embed/tv/${id}/${season}-${episode}`
+                ? `https://moviesapi.club/movie/${id}`
+                : `https://moviesapi.club/tv/${id}-${season}-${episode}`
             }
             className={styles.iframe}
             allowFullScreen
