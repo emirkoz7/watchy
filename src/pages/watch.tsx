@@ -10,7 +10,6 @@ import axiosFetch from "@/Utils/fetchBackend";
 import WatchDetails from "@/components/WatchDetails";
 import Player from "@/components/Artplayer";
 import Head from "next/head";
-import { FaDiscord, FaDonate } from "react-icons/fa";
 import useDeviceSize from "@/Utils/useDeviceSize";
 
 const Watch = () => {
@@ -146,74 +145,9 @@ const Watch = () => {
     window.addEventListener("keydown", handleKeyDown);
 
    // Remove event listener when component unmounts
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [params, id, season, episode]);
-
-  useEffect(() => {
-    if (embedMode !== undefined && embedMode !== null)
-      localStorage.setItem("RiveStreamEmbedMode", embedMode);
-    if (embedMode === true) {
-      const latestAgg: any = localStorage.getItem("RiveStreamLatestAgg");
-      if (latestAgg !== null && latestAgg !== undefined) setSource(latestAgg);
-      toast.info(
-        <div>
-          Cloud: use AD-Blocker services for AD-free experience, like AD-Blocker
-          extension or{" "}
-          <a target="_blank" href="https://brave.com/">
-            Brave Browser{" "}
-          </a>
-        </div>,
-      );
-
-      toast.info(
-        <div>
-          Cloud: use video downloader extensions like{" "}
-          <a target="_blank" href="https://fetchv.net/">
-            FetchV{" "}
-          </a>{" "}
-          or{" "}
-          <a target="_blank" href="https://www.hlsloader.com/">
-            Stream Recorder{" "}
-          </a>{" "}
-          for PC and{" "}
-          <a
-            target="_blank"
-            href="https://play.google.com/store/apps/details?id=videoplayer.videodownloader.downloader"
-          >
-            AVDP{" "}
-          </a>{" "}
-          for Android, to download movies/tv shows. Refer{" "}
-          <a
-            target="_blank"
-            href="https://www.reddit.com/r/DataHoarder/comments/qgne3i/how_to_download_videos_from_vidsrcme/"
-          >
-            The Source{" "}
-          </a>
-        </div>,
-      );
-    } else {
+  
       // discord Invitation
-      (isDesktop || isTV) &&
-        (toast.info(
-          <a href="/donation" className="discordInvitation">
-            <FaDonate />
-            Donate to the Rive community
-            <FaDonate />
-          </a>,
-        ),
-        toast.info(
-          <a
-            target="_blank"
-            href="https://discord.gg/6xJmJja8fV"
-            className="discordInvitation"
-          >
-            <FaDiscord />
-            Join Rive community on Discord
-            <FaDiscord />
-          </a>,
-        ));
+    
       // discord Invitation
     }
   }, [embedMode]);
