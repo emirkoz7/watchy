@@ -477,12 +477,12 @@ const Watch = () => {
                 localStorage.setItem("RiveStreamLatestAgg", e.target.value);
               }}
             >
-              <option value="AGG" defaultChecked>Server1</option>
+              <option value="SUP" defaultChecked>Server1</option>
               <option value="VID">Server2</option>
               <option value="PRO">Server3</option>
               <option value="EMB">Server4</option>
               <option value="MULTI">Server5</option>
-              <option value="SUP">Server6</option>
+              <option value="AGG">Server6</option>
               <option value="CLUB">Server7</option>
 
             </select>
@@ -578,8 +578,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidsrc.pro/embed/${type}/${id}?&autoplay=1&theme=ffd966`
-                : `https://vidsrc.pro/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
+                ? `https://flixcloud.co/embed/${type}?id=${id}`
+                : `https://flixcloud.co/embed/${type}?id=${id}&s=${season}&e=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -656,8 +656,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://flixcloud.co/embed/${type}?id=${id}`
-                : `https://flixcloud.co/embed/${type}?id=${id}&s=${season}&e=${episode}`
+                ? `https://vidsrc.pro/embed/${type}/${id}?&autoplay=1&theme=ffd966`
+                : `https://vidsrc.pro/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
             }
             className={styles.iframe}
             allowFullScreen
