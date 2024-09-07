@@ -489,7 +489,7 @@ const HomeListAll = () => {
             onClick={() => {
               document
                 .querySelectorAll(`.${styles.HomeListSection}`)
-                [recommendations.length > 0 ? 7 : 6].scrollBy(-700, 0);
+                [recommendations.length > 0 ? 6 : 7].scrollBy(-700, 0);
             }}
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
@@ -498,7 +498,7 @@ const HomeListAll = () => {
             onClick={() => {
               document
                 .querySelectorAll(`.${styles.HomeListSection}`)
-                [recommendations.length > 0 ? 7 : 6].scrollBy(700, 0);
+                [recommendations.length > 0 ? 6 : 7].scrollBy(700, 0);
             }}
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Right"
@@ -521,7 +521,7 @@ const HomeListAll = () => {
             onClick={() => {
               document
                 .querySelectorAll(`.${styles.HomeListSection}`)
-                [recommendations.length > 0 ? 8 : 7].scrollBy(-700, 0);
+                [recommendations.length > 0 ? 7 : 8].scrollBy(-700, 0);
             }}
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Left"
@@ -530,7 +530,7 @@ const HomeListAll = () => {
             onClick={() => {
               document
                 .querySelectorAll(`.${styles.HomeListSection}`)
-                [recommendations.length > 0 ? 8 : 7].scrollBy(700, 0);
+                [recommendations.length > 0 ? 7 : 8].scrollBy(700, 0);
             }}
             data-tooltip-id="tooltip"
             data-tooltip-content="Swipe Right"
