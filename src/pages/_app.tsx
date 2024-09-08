@@ -87,7 +87,7 @@ export default function App({ Component, pageProps }: any) {
           content="https://rivestream.live/images/MetaImage.jpg"
         />
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-         <script defer src="https://66analytics.com/demo/pixel/mmUKpIfLLEyz1hsU"></script>
+<script defer src="https://www.hopmarks.com/pixel/6kGs7cJPCJGyhCX1"></script>
 
       </Head> 
       <Layout>
