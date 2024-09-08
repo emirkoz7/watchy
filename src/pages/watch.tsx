@@ -637,8 +637,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidsrc.pro/embed/${type}/${id}?&autoplay=1&theme=ffd966`
-                : `https://vidsrc.pro/embed/${type}/${id}/${season}/${episode}?&autoplay=1&theme=ffd966`
+                ? `https://vidlink.pro/${type}/${id}??primaryColor=ffd966`
+                : `https://vidlink.pro/${type}/${id}/${season}/${episode}?primaryColor=ffd966`
             }
             className={styles.iframe}
             allowFullScreen
