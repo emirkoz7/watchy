@@ -88,6 +88,7 @@ export default function App({ Component, pageProps }: any) {
         />
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 <script defer src="https://www.hopmarks.com/pixel/6kGs7cJPCJGyhCX1"></script>
+<script defer src="https://www.hopmarks.com/pixel/VPhefhBSviyfZamy"></script>
 
       </Head> 
       <Layout>
