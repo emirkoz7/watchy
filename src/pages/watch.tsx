@@ -453,8 +453,8 @@ const Watch = () => {
               localStorage.setItem("RiveStreamEmbedMode", e.target.value);
             }}
           >
-            <option value="true">Embed Mode</option>
-            <option value="false">NON Embed Mode (AD-free)</option>
+            <option value="false">Embed Mode</option>
+            <option value="true">NON Embed Mode (AD-free)</option>
           </select>
         </div>
         <div className={`${styles.loader} skeleton`}>
