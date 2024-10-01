@@ -28,7 +28,7 @@ const Watch = () => {
   const [watchDetails, setWatchDetails] = useState(false);
   const [data, setdata] = useState<any>();
   const [seasondata, setseasonData] = useState<any>();
-  const [source, setSource] = useState("SUP");
+  const [source, setSource] = useState("ANY");
   const [embedMode, setEmbedMode] = useState<any>();
   // const [nonEmbedURL, setNonEmbedURL] = useState<any>("");
   const [nonEmbedSourcesIndex, setNonEmbedSourcesIndex] = useState<any>("");
@@ -459,7 +459,7 @@ const Watch = () => {
               }}
             >
                <option value="ANY" defaultChecked>Server1</option>
-			  <option value="SUP">Server2</option>
+	      <option value="SUP">Server2</option>
               <option value="VID">Server3</option>
               <option value="AGG">Server4</option>
               <option value="PRO">Server5</option>
