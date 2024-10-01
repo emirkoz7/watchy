@@ -5,6 +5,7 @@
   overflow-x: hidden;
   padding: 1rem 0.5rem;
   padding-left: 5rem;
+  margin-top: 35px;
   .category {
     display: flex;
     width: 100%;
@@ -92,7 +93,7 @@
     caret-color: var(--primary-2);
     padding: 1rem;
     width: clamp(20rem, 80%, 25rem);
-    border-radius: 0.5rem;
+  
   }
 }
 
