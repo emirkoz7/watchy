@@ -145,58 +145,7 @@ const Watch = () => {
     window.addEventListener("keydown", handleKeyDown);
 
    // Remove event listener when component unmounts
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [params, id, season, episode]);
 
-  useEffect(() => {
-    if (embedMode !== undefined && embedMode !== null)
-      localStorage.setItem("RiveStreamEmbedMode", embedMode);
-    if (embedMode === true) {
-      const latestAgg: any = localStorage.getItem("RiveStreamLatestAgg");
-      if (latestAgg !== null && latestAgg !== undefined) setSource(latestAgg);
-      toast.info(
-        <div>
-          Cloud: use AD-Blocker services for AD-free experience, like AD-Blocker
-          extension or{" "}
-          <a target="_blank" href="https://brave.com/">
-            Brave Browser{" "}
-          </a>
-        </div>,
-      );
-
-      toast.info(
-        <div>
-          Cloud: use video downloader extensions like{" "}
-          <a target="_blank" href="https://fetchv.net/">
-            FetchV{" "}
-          </a>{" "}
-          or{" "}
-          <a target="_blank" href="https://www.hlsloader.com/">
-            Stream Recorder{" "}
-          </a>{" "}
-          for PC and{" "}
-          <a
-            target="_blank"
-            href="https://play.google.com/store/apps/details?id=videoplayer.videodownloader.downloader"
-          >
-            AVDP{" "}
-          </a>{" "}
-          for Android, to download movies/tv shows. Refer{" "}
-          <a
-            target="_blank"
-            href="https://www.reddit.com/r/DataHoarder/comments/qgne3i/how_to_download_videos_from_vidsrcme/"
-          >
-            The Source{" "}
-          </a>
-        </div>,
-      );
-    } else {
-      // discord Invitation
-    
-      // discord Invitation
-    }
   }, [embedMode]);
 
   useEffect(() => {
@@ -458,14 +407,17 @@ const Watch = () => {
                 localStorage.setItem("RiveStreamLatestAgg", e.target.value);
               }}
             >
-              <option value="SUP" defaultChecked>Server1</option>
-              <option value="VID">Server2</option>
-              <option value="PRO">Server3</option>
-              <option value="EMB">Server4</option>
-              <option value="MULTI">Server5</option>
-              <option value="AGG">Server6</option>
-              <option value="CLUB">Server7</option>
-
+              <option value="ANY" defaultChecked>Server1</option>
+			  <option value="SUP">Server2</option>
+              <option value="VID">Server3</option>
+              <option value="AGG">Server4</option>
+              <option value="PRO">Server5</option>
+              <option value="ONE">Server6</option>
+              <option value="SMASH">Server7</option>
+              <option value="CLUB">Server8</option>
+              <option value="MULTI">Server9</option>
+			   <option value="EMB">Server10</option>
+			   
             </select>
           )}
 
@@ -559,8 +511,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://flixcloud.co/embed/${type}?id=${id}`
-                : `https://flixcloud.co/embed/${type}?id=${id}&s=${season}&e=${episode}`
+                ? `https://player.smashy.stream/${type}/${id}`
+                : `https://player.smashy.stream/${type}/${id}?s=${season}&e=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -574,13 +526,14 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://eighty-mu.vercel.app/watch/${type}/${id}/null`
-                : `https://eighty-mu.vercel.app/watch/${type}/${id}/null?episode=${episode}&season=${season}`
+                ? `https://vidbinge.dev/embed/${type}/${id}`
+                : `https://vidbinge.dev/embed/${type}/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
+			sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
           ></iframe>
         ) : null}
 
@@ -596,6 +549,7 @@ const Watch = () => {
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
+			sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
           ></iframe>
         ) : null}
 
@@ -604,13 +558,14 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://player.autoembed.cc/embed/${type}/${id}`
-                : `https://player.autoembed.cc/embed/${type}/${id}/${season}/${episode}`
+                ? `https://player.vidsrc.nl/embed/${type}/${id}`
+                : `https://player.vidsrc.nl/embed/${type}/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
+			sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
           ></iframe>
         ) : null}
 
@@ -644,6 +599,7 @@ const Watch = () => {
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
+			sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
           ></iframe>
         ) : null}
 
@@ -659,6 +615,7 @@ const Watch = () => {
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
+			
           ></iframe>
         ) : null}
 
@@ -670,8 +627,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_SMASH}/embed/movie/${id}`
-                : `${STREAM_URL_SMASH}/embed/tv/${id}/${season}/${episode}`
+                ? `https://vidsrc.pro/embed/${type}/${id}`
+                : `https://vidsrc.pro/embed/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -685,8 +642,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_ONE}/embed/movie/${id}`
-                : `${STREAM_URL_ONE}/embed/tv/${id}?season=${season}&episode=${episode}`
+                ? `https://vidsrc.cc/v3/embed/movie/${id}`
+                : `https://vidsrc.cc/v3/embed/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -700,8 +657,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_ANY}/embed/movie?id=${id}`
-                : `${STREAM_URL_ANY}/embed/tv?id=${id}&s=${season}&e=${episode}`
+                ? `https://embed.su/embed/${type}/${id}`
+                : `https://embed.su/embed/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
