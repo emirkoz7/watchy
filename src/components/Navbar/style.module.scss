@@ -2,15 +2,14 @@
   border-radius: 0px;
   position: fixed;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  left: 0rem;
-  top: calc(50% - 190px);
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding: 1rem;
   background:#161515;
   gap: 1rem;
   z-index: 5;
+  top: 0px;
 }
 
 .inactive {
