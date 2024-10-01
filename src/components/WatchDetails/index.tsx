@@ -465,17 +465,7 @@ const WatchDetails = ({
           </div>
           <div className={styles.MovieList}>
             <>
-              {category === "related" &&
-                categoryData?.results?.map((ele: any) => {
-                  return (
-                    <MovieCardLarge
-                      data={ele}
-                      media_type={type}
-                      genresMovie={genreListMovie}
-                      genresTv={genreListTv}
-                    />
-                  );
-                })}
+          
             </>
             {category === "related" && categoryData?.results?.length === 0 && (
               <p>No Recommendations</p>
@@ -495,17 +485,7 @@ const WatchDetails = ({
           </div>
           <div className={styles.MovieList}>
             <>
-              {category === "similar" &&
-                categoryData?.results?.map((ele: any) => {
-                  return (
-                    <MovieCardLarge
-                      data={ele}
-                      media_type={type}
-                      genresMovie={genreListMovie}
-                      genresTv={genreListTv}
-                    />
-                  );
-                })}
+              
               {(category === "related" || category === "similar") &&
                 categoryData?.results?.length > 0 && (
                   <ReactPaginate
