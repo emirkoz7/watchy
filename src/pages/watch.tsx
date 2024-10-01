@@ -251,14 +251,11 @@ const Watch = () => {
           setNonEmbedSourcesNotFound(true);
           autoEmbedMode = setTimeout(() => {
             setEmbedMode(true);
-          }, 10);
+          }, 0);
         }
       };
 
-      if (season !== null && episode !== null)
-        toast.info(
-          "It may take 30s-1min to load media for an episode. Wait for the player to load",
-        );
+
 
       fetch();
       // if (nonEmbedURl === "") setEmbedMode(true);
