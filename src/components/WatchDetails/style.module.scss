@@ -79,7 +79,7 @@
       width: 4rem !important;
       height: 6rem;
       object-fit: cover;
-      border-radius: 0.5rem;
+
     }
     .MovieList,
     .ReviewList,
@@ -117,7 +117,6 @@
         color: var(--primary-3);
         outline: none;
         border: 1px solid var(--primary-2);
-        border-radius: 0.5rem;
         margin: 1rem auto;
         // &[selected="true"]{
         //   color: var(--ascent-color);
@@ -136,7 +135,7 @@
         overflow: hidden;
         cursor: pointer;
         gap: 0.5rem;
-        border-radius: 0.5rem;
+
         h4 {
           margin-top: 0;
         }
@@ -237,7 +236,7 @@
 
 .highlightEpisode {
   background: var(--primary-1) !important;
-  border: 1px solid var(--primary-2);
+
 }
 
 .close {
