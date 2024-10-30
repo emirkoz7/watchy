@@ -650,7 +650,7 @@ const Watch = () => {
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
-			sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
+
           ></iframe>
         ) : null}
 
@@ -716,7 +716,7 @@ const Watch = () => {
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
-	    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"  
+
           ></iframe>
         ) : null}
 
