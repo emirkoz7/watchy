@@ -467,8 +467,8 @@ const Watch = () => {
               <option value="SMASH">Server7</option>
               <option value="CLUB">Server8</option>
               <option value="MULTI">Server9</option>
-			   <option value="EMB">Server10</option>
-			   
+	      <option value="EMB">Server10</option>
+	      <option value="ADF">Premium</option>	   
             </select>
           )}
 
@@ -835,8 +835,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `${STREAM_URL_PRO}/embed/${type}/${id}?player=new`
-                : `${STREAM_URL_PRO}/embed/${type}/${id}/${season}/${episode}?player=new`
+                ? `https://api.hexa.watch/movie/${id}?autoplay=true`
+                : `https://api.hexa.watch/tv/${id}/${season}/${episode}?autoplay=true`
             }
             className={styles.iframe}
             allowFullScreen
