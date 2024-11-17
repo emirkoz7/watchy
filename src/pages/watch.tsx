@@ -28,7 +28,7 @@ const Watch = () => {
   const [watchDetails, setWatchDetails] = useState(false);
   const [data, setdata] = useState<any>();
   const [seasondata, setseasonData] = useState<any>();
-  const [source, setSource] = useState("SUP");
+  const [source, setSource] = useState("ADF");
   const [embedMode, setEmbedMode] = useState<any>();
   // const [nonEmbedURL, setNonEmbedURL] = useState<any>("");
   const [nonEmbedSourcesIndex, setNonEmbedSourcesIndex] = useState<any>("");
