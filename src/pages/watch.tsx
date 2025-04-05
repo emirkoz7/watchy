@@ -562,8 +562,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://player.smashy.stream/${type}/${id}`
-                : `https://player.smashy.stream/${type}/${id}?s=${season}&e=${episode}`
+                ? `https://embed.su/embed/movie/${id}`
+                : `https://embed.su/embed/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -577,8 +577,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidbinge.dev/embed/${type}/${id}`
-                : `https://vidbinge.dev/embed/${type}/${id}/${season}/${episode}`
+                ? `https://vidlink.pro/movie/${id}?autoplay=true&title=true`
+                : `https://vidlink.pro/tv/${id}/${season}/${episode}?autoplay=true&title=true`
             }
             className={styles.iframe}
             allowFullScreen
@@ -593,14 +593,14 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidsrc.cc/v2/embed/${type}/${id}`
-                : `https://vidsrc.cc/v2/embed/${type}/${id}/${season}/${episode}`
+                ? `https://vidsrc.wtf/api/3/movie?id=${id}`
+                : `https://vidsrc.wtf/api/3/tv?id=${id}&s=${season}&e=${episode}`
             }
             className={styles.iframe}
             allowFullScreen
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
             referrerPolicy="origin"
-	    sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-presentation"
+
           ></iframe>
         ) : null}
 
@@ -643,8 +643,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidlink.pro/${type}/${id}??primaryColor=ffd966`
-                : `https://vidlink.pro/${type}/${id}/${season}/${episode}?primaryColor=ffd966`
+                ? `https://vidfast.pro/movie/${id}?autoPlay=true`
+                : `https://vidfast.pro/tv/${id}/${season}/${episode}?autoPlay=true`
             }
             className={styles.iframe}
             allowFullScreen
@@ -659,8 +659,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://moviesapi.club/movie/${id}`
-                : `https://moviesapi.club/tv/${id}-${season}-${episode}`
+                ? `https://vidjoy.pro/embed/movie/${id}`
+                : `https://vidjoy.pro/embed/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -678,8 +678,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://vidsrc.pro/embed/${type}/${id}`
-                : `https://vidsrc.pro/embed/tv/${id}/${season}/${episode}`
+                ? `https://player.videasy.net/movie/${id}`
+                : `https://player.videasy.net/tv/${id}/${season}/${episode}`
             }
             className={styles.iframe}
             allowFullScreen
@@ -709,8 +709,8 @@ const Watch = () => {
             scrolling="no"
             src={
               type === "movie"
-                ? `https://embed.su/embed/${type}/${id}`
-                : `https://embed.su/embed/tv/${id}/${season}/${episode}`
+                ? `https://hopruss.vercel.app/media/movie/${id}`
+                : `https://hopruss.vercel.app/media/tv/${id}`
             }
             className={styles.iframe}
             allowFullScreen
