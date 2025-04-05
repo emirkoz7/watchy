@@ -28,7 +28,7 @@ const Watch = () => {
   const [watchDetails, setWatchDetails] = useState(false);
   const [data, setdata] = useState<any>();
   const [seasondata, setseasonData] = useState<any>();
-  const [source, setSource] = useState("ADF");
+  const [source, setSource] = useState("ANY");
   const [embedMode, setEmbedMode] = useState<any>();
   // const [nonEmbedURL, setNonEmbedURL] = useState<any>("");
   const [nonEmbedSourcesIndex, setNonEmbedSourcesIndex] = useState<any>("");
@@ -468,7 +468,7 @@ const Watch = () => {
               <option value="CLUB">Server8</option>
               <option value="MULTI">Server9</option>
 	      <option value="EMB">Server10</option>
-	      <option value="ADF">Premium</option>	   
+	     
             </select>
           )}
 
