@@ -81,11 +81,11 @@ const CategorywisePage = ({ categoryDiv, categoryPage = null }: any) => {
                 ? categoryType === "tv"
                   ? "first_air_date.desc"
                   : "primary_release_date.desc"
-                : undefined || category === "trending"
+
                   ? "popularity.desc"
-                  : undefined || category === "topRated"
+
                     ? "vote_count.desc"
-                    : undefined,
+
             genreKeywords: "210024,",
             page: currentPage,
           });
@@ -98,11 +98,11 @@ const CategorywisePage = ({ categoryDiv, categoryPage = null }: any) => {
                 ? categoryType === "tv"
                   ? "first_air_date.desc"
                   : "primary_release_date.desc"
-                : undefined || category === "trending"
+
                   ? "popularity.desc"
-                  : undefined || category === "topRated"
+
                     ? "vote_count.desc"
-                    : undefined,
+
             genreKeywords: ",",
             country: "KR",
             page: currentPage,
