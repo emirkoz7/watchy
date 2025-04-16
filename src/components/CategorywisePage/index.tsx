@@ -9,115 +9,97 @@ import Filter from "../Filter";
 import Skeleton from "react-loading-skeleton";
 import NProgress from "nprogress";
 
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter(str: string = "") {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const dummyList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const dummyList = Array.from({ length: 10 }, (_, i) => i);
 
-interface CategorywisePageProps {
-  categoryDiv: string;
-  categoryPage?: "anime" | "kdrama" | null;
-}
-
-const CategorywisePage: React.FC<CategorywisePageProps> = ({
-  categoryDiv,
-  categoryPage = null,
-}) => {
-  const [categoryType, setCategoryType] = useState(categoryDiv || "movie");
-  const [category, setCategory] = useState("latest");
+const CategorywisePage = ({ categoryDiv = "movie", categoryPage = null }: any) => {
+  const [categoryType, setCategoryType] = useState<string>(categoryDiv);
+  const [category, setCategory] = useState<string>("latest");
   const [data, setData] = useState<any[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalpages, setTotalpages] = useState(1);
-  const [showFilter, setShowFilter] = useState(false);
-  const [filterGenreList, setFilterGenreList] = useState("");
-  const [filterCountry, setFiltercountry] = useState("");
-  const [filterYear, setFilterYear] = useState("");
-  const [sortBy, setSortBy] = useState("");
-  const [trigger, setTrigger] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalpages, setTotalpages] = useState<number>(1);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [filterGenreList, setFilterGenreList] = useState<string>("");
+  const [filterCountry, setFiltercountry] = useState<string | undefined>();
+  const [filterYear, setFilterYear] = useState<string | undefined>();
+  const [sortBy, setSortBy] = useState<string | undefined>();
+  const [trigger, setTrigger] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const CapitalCategoryType = capitalizeFirstLetter(categoryType);
 
   useEffect(() => {
     if (loading) {
       NProgress.start();
     } else {
-      NProgress.done(false);
+      NProgress.done();
     }
   }, [loading]);
 
   useEffect(() => {
-    setLoading(true);
     const fetchData = async () => {
+      setLoading(true);
       try {
-        let data;
+        let result;
+        const requestID = `${category}${CapitalCategoryType}`;
+        const sortMap = {
+          latest: categoryType === "tv" ? "first_air_date.desc" : "primary_release_date.desc",
+          trending: "popularity.desc",
+          topRated: "vote_count.desc",
+        };
+
         if (category === "filter") {
-          data = await axiosFetch({
-            requestID: `${category}${CapitalCategoryType}`,
+          result = await axiosFetch({
+            requestID,
             page: currentPage,
             genreKeywords: filterGenreList,
-            ...(filterCountry && { country: filterCountry }),
-            ...(filterYear && { year: filterYear }),
-            ...(sortBy && { sortBy }),
+            country: filterCountry,
+            year: filterYear,
+            sortBy,
           });
         } else if (categoryPage === "anime") {
-          data = await axiosFetch({
-            requestID:
-              categoryType === "tv" ? "withKeywordsTv" : "withKeywordsMovie",
-            sortBy: category === "latest"
-              ? categoryType === "tv"
-                ? "first_air_date.desc"
-                : "primary_release_date.desc"
-              : category === "trending"
-                ? "popularity.desc"
-                : category === "topRated"
-                  ? "vote_count.desc"
-                  : undefined,
+          result = await axiosFetch({
+            requestID: categoryType === "tv" ? "withKeywordsTv" : "withKeywordsMovie",
+            sortBy: sortMap[category as keyof typeof sortMap],
             genreKeywords: "210024,",
             page: currentPage,
           });
         } else if (categoryPage === "kdrama") {
-          data = await axiosFetch({
-            requestID:
-              categoryType === "tv" ? "withKeywordsTv" : "withKeywordsMovie",
-            sortBy: category === "latest"
-              ? categoryType === "tv"
-                ? "first_air_date.desc"
-                : "primary_release_date.desc"
-              : category === "trending"
-                ? "popularity.desc"
-                : category === "topRated"
-                  ? "vote_count.desc"
-                  : undefined,
+          result = await axiosFetch({
+            requestID: categoryType === "tv" ? "withKeywordsTv" : "withKeywordsMovie",
+            sortBy: sortMap[category as keyof typeof sortMap],
             genreKeywords: ",",
             country: "KR",
             page: currentPage,
           });
         } else {
-          data = await axiosFetch({
-            requestID: `${category}${CapitalCategoryType}`,
+          result = await axiosFetch({
+            requestID,
             page: currentPage,
           });
         }
 
-        if (data.page > data.total_pages) {
-          setCurrentPage(data.total_pages);
-        }
-        if (currentPage > data.total_pages) {
-          setCurrentPage(data.total_pages);
+        const safePage = Math.min(result?.page || 1, result?.total_pages || 1);
+        if (currentPage > safePage) {
+          setCurrentPage(safePage);
           return;
         }
-        setData(data.results || []);
-        setTotalpages(data.total_pages > 500 ? 500 : data.total_pages);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+
+        setData(result?.results || []);
+        setTotalpages(Math.min(result?.total_pages || 1, 500));
+      } catch (err) {
+        console.error("Error fetching data:", err);
         setData([]);
+      } finally {
         setLoading(false);
       }
     };
+
     fetchData();
-  }, [categoryType, category, currentPage, trigger, CapitalCategoryType]);
+  }, [categoryType, category, currentPage, trigger]);
 
   const handleFilterClick = () => {
     setCurrentPage(1);
@@ -128,31 +110,21 @@ const CategorywisePage: React.FC<CategorywisePageProps> = ({
   return (
     <div className={styles.MoviePage}>
       <h1>
-        {categoryPage === null
-          ? CapitalCategoryType
-          : categoryPage === "anime"
-            ? "Anime"
-            : "K-Drama"}
+        {(categoryPage === null && CapitalCategoryType) ||
+          (categoryPage === "anime" && "Anime") ||
+          (categoryPage === "kdrama" && "K-Drama")}
       </h1>
+
       <div className={styles.category}>
-        <p
-          className={`${category === "latest" ? styles.active : styles.inactive}`}
-          onClick={() => setCategory("latest")}
-        >
-          Latest
-        </p>
-        <p
-          className={`${category === "trending" ? styles.active : styles.inactive}`}
-          onClick={() => setCategory("trending")}
-        >
-          Trending
-        </p>
-        <p
-          className={`${category === "topRated" ? styles.active : styles.inactive}`}
-          onClick={() => setCategory("topRated")}
-        >
-          Top-Rated
-        </p>
+        {["latest", "trending", "topRated"].map((cat) => (
+          <p
+            key={cat}
+            className={`${category === cat ? styles.active : styles.inactive}`}
+            onClick={() => setCategory(cat)}
+          >
+            {capitalizeFirstLetter(cat.replace("topRated", "Top-Rated"))}
+          </p>
+        ))}
         {categoryPage === null ? (
           <p
             className={`${category === "filter" ? styles.active : styles.inactive} ${styles.filter}`}
@@ -178,6 +150,7 @@ const CategorywisePage: React.FC<CategorywisePageProps> = ({
           </select>
         )}
       </div>
+
       {showFilter && (
         <Filter
           categoryType={categoryType}
@@ -195,30 +168,35 @@ const CategorywisePage: React.FC<CategorywisePageProps> = ({
           trigger={trigger}
         />
       )}
+
       <div className={styles.movieList}>
-        {Array.isArray(data) &&
-          data.map((ele: any) => (
-            <MovieCardSmall key={ele.id} data={ele} media_type={categoryType} />
-          ))}
-        {(!data || data.length === 0) &&
-          dummyList.map((ele) => (
-            <Skeleton key={ele} className={styles.loading} />
-          ))}
+        {data.length > 0
+          ? data.map((ele: any, idx: number) => (
+              <MovieCardSmall
+                key={ele.id || `movie-${idx}`}
+                data={ele}
+                media_type={categoryType}
+              />
+            ))
+          : dummyList.map((ele) => (
+              <Skeleton key={ele} className={styles.loading} />
+            ))}
       </div>
+
       <ReactPaginate
         containerClassName={styles.pagination}
         pageClassName={styles.page_item}
         activeClassName={styles.paginateActive}
         onPageChange={(event) => {
-          setCurrentPage(event.selected + 1);
-          if (currentPage > totalpages) {
-            setCurrentPage(totalpages);
+          const newPage = event.selected + 1;
+          if (newPage <= totalpages) {
+            setCurrentPage(newPage);
+            window.scrollTo(0, 0);
           }
-          window.scrollTo(0, 0);
         }}
-        forcePage={currentPage - 1}
+        forcePage={Math.max(0, currentPage - 1)}
         pageCount={totalpages}
-        breakLabel=" ... "
+        breakLabel="..."
         previousLabel={<AiFillLeftCircle className={styles.paginationIcons} />}
         nextLabel={<AiFillRightCircle className={styles.paginationIcons} />}
       />
